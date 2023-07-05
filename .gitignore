@@ -1,10 +1,10 @@
 .idea
 .prettierignore
-cardinal
+/cardinal
 /webcardinal
 /opendsu-sdk
 gtin-resolver
-demiurge
+/demiurge
 /dossier-explorer-ssapp
 /dossier-explorer-wallet-prototype
 env.json.devel

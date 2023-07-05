@@ -1,0 +1,37 @@
+{
+    "name": "cardinal",
+    "version": "0.1.2",
+    "description": "Cardinal is a PrivateSky sub-project. Cardinal framework empowers web components capabilities to be used in Self-Sovereign Applications (SSApps).",
+    "main": "dist/index.js",
+    "module": "dist/index.mjs",
+    "es2015": "dist/esm/index.mjs",
+    "es2017": "dist/esm/index.mjs",
+    "types": "dist/types/index.d.ts",
+    "collection": "dist/collection/collection-manifest.json",
+    "collection:main": "dist/collection/index.js",
+    "unpkg": "dist/cardinal/cardinal.js",
+    "files": [
+        "dist/",
+        "loader/"
+    ],
+    "scripts": {
+        "build": "stencil build --docs",
+        "build-dev": "stencil build --dev",
+        "build-prod": "stencil build --prod",
+        "start": "stencil build --dev --watch --serve",
+        "test": "stencil test --spec --e2e",
+        "test.watch": "stencil test --spec --e2e --watchAll",
+        "generate": "stencil generate",
+        "dist": "node ./bin/build_dist.js",
+        "build-dossier": "node ./node_modules/octopus/scripts/buildDSU.js"
+    },
+    "dependencies": {
+        "@stencil/router": "^1.0.1",
+        "prismjs": "^1.21.0"
+    },
+    "devDependencies": {
+        "@stencil/core": "^1.17.3",
+        "octopus": "git+http://github.com/opendsu/octopus.git#a2bfd2485eccca66cb1160613eac9f6b30d66bda"
+    },
+    "license": "MIT"
+}

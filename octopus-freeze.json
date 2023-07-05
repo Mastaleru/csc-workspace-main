@@ -36,6 +36,14 @@
                     "commit": "1fff8f862530b58efd9fc94462a112da795176a5"
                 },
                 {
+                    "type": "copy",
+                    "src": "./patch/cardinal",
+                    "target": "./cardinal",
+                    "options": {
+                        "overwrite": true
+                    }
+                },
+                {
                     "type": "execute",
                     "cmd": "cd cardinal && npm install"
                 },
@@ -238,6 +246,14 @@
                     "target": ".",
                     "collectLog": false,
                     "commit": "93bb76309913e780932bb367a0a599e54a04578d"
+                },
+                {
+                    "type": "copy",
+                    "src": "./patch/dossier-explorer-wallet-prototype",
+                    "target": "./dossier-explorer-wallet-prototype",
+                    "options": {
+                        "overwrite": true
+                    }
                 },
                 {
                     "type": "execute",
