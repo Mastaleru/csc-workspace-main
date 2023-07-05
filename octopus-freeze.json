@@ -455,14 +455,6 @@
                     "commit": "4dcb2ec281f837c27cfcb612db07630d00177b9d"
                 },
                 {
-                    "type": "copy",
-                    "src": "./patch/metrics-middleware",
-                    "target": "./metrics-middleware",
-                    "options": {
-                        "overwrite": true
-                    }
-                },
-                {
                     "type": "execute",
                     "cmd": "cd metrics-middleware/middleware && npm install"
                 }
