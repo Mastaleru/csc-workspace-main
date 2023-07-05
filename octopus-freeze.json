@@ -288,6 +288,14 @@
                     "commit": "c85115879c6d5614a4872dfc5e38cd852ad95c77"
                 },
                 {
+                    "type": "copy",
+                    "src": "./patch/dossier-explorer-ssapp",
+                    "target": "./dossier-explorer-ssapp",
+                    "options": {
+                        "overwrite": true
+                    }
+                },
+                {
                     "type": "execute",
                     "cmd": "cd dossier-explorer-ssapp && npm install"
                 }
