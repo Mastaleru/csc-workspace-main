@@ -715,6 +715,5 @@
         }
     ],
     "install-mobile": [],
-    "build-mobile": [],
-    "docs": []
+    "build-mobile": []
 }
