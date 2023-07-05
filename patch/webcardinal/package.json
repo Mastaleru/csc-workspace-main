@@ -1,0 +1,11 @@
+{
+  "name": "webcardinal",
+  "license": "MIT",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "node ./node_modules/octopus/scripts/buildDSU.js --bundles=./../opendsu-sdk/psknode/bundles"
+  },
+  "dependencies": {
+    "octopus": "git+http://github.com/opendsu/octopus.git#a2bfd2485eccca66cb1160613eac9f6b30d66bda"
+  }
+}

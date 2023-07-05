@@ -1,0 +1,17 @@
+{
+    "name": "trust-loader",
+    "version": "v0.3.3",
+    "description": "Web Loader for the Wallet User Interface",
+    "scripts": {
+        "postinstall": "node ./node_modules/octopus/scripts/run dependencies devmode",
+        "update": "npm run postinstall",
+        "build": "node ./node_modules/octopus/scripts/run build devmode"
+    },
+    "dependencies": {
+        "octopus": "git+http://github.com/opendsu/octopus.git#a2bfd2485eccca66cb1160613eac9f6b30d66bda"
+    },
+    "devDependencies": {
+        "workbox-cli": "6.4.2"
+    },
+    "license": "MIT"
+}

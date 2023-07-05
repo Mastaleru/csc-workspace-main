@@ -1,12 +1,12 @@
 .idea
 .prettierignore
 cardinal
-webcardinal
-opendsu-sdk
+/webcardinal
+/opendsu-sdk
 gtin-resolver
 demiurge
-dossier-explorer-ssapp
-dossier-explorer-wallet-prototype
+/dossier-explorer-ssapp
+/dossier-explorer-wallet-prototype
 env.json.devel
 node_modules
 package-lock.json
@@ -14,7 +14,7 @@ themes/blue-fluorite-theme
 latest-change-set.txt
 builds
 tmp
-metrics-middleware
+/metrics-middleware
 
 apihub-root/mqs/
 apihub-root/seedsBackup

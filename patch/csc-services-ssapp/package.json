@@ -1,0 +1,14 @@
+{
+  "name": "csc-services",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "node ./node_modules/octopus/scripts/run build devmode"
+  },
+  "author": "CERTH&RMS",
+  "license": "MIT",
+  "dependencies": {
+    "octopus": "git+http://github.com/opendsu/octopus.git#a2bfd2485eccca66cb1160613eac9f6b30d66bda"
+  }
+}

@@ -12,6 +12,14 @@
                     "commit": "d2630d3dd52c9e5a5c922002bd9acaf25b375c65"
                 },
                 {
+                    "type": "copy",
+                    "src": "./patch/webcardinal",
+                    "target": "./webcardinal",
+                    "options": {
+                        "overwrite": true
+                    }
+                },
+                {
                     "type": "execute",
                     "cmd": "cd webcardinal && npm install"
                 }
@@ -48,6 +56,14 @@
                     "commit": "b50398b3f8269b81d57b599a7aaf3cfcc8918443"
                 },
                 {
+                    "type": "copy",
+                    "src": "./patch/opendsu-sdk",
+                    "target": "./opendsu-sdk",
+                    "options": {
+                        "overwrite": true
+                    }
+                },
+                {
                     "type": "execute",
                     "cmd": "cd opendsu-sdk && npm install"
                 }
@@ -62,6 +78,14 @@
                     "target": ".",
                     "collectLog": false,
                     "commit": "35354341a275ef9f190331dfbd0a4f68339dc06c"
+                },
+                {
+                    "type": "copy",
+                    "src": "./patch/trust-loader",
+                    "target": "./apihub-root/csc-sponsor-wallet/loader",
+                    "options": {
+                        "overwrite": true
+                    }
                 },
                 {
                     "type": "execute",
@@ -84,6 +108,14 @@
                     "commit": "35354341a275ef9f190331dfbd0a4f68339dc06c"
                 },
                 {
+                    "type": "copy",
+                    "src": "./patch/trust-loader",
+                    "target": "./apihub-root/csc-cmo-wallet/loader",
+                    "options": {
+                        "overwrite": true
+                    }
+                },
+                {
                     "type": "execute",
                     "cmd": "cd apihub-root/csc-cmo-wallet/loader && npm install"
                 },
@@ -104,6 +136,14 @@
                     "commit": "35354341a275ef9f190331dfbd0a4f68339dc06c"
                 },
                 {
+                    "type": "copy",
+                    "src": "./patch/trust-loader",
+                    "target": "./apihub-root/csc-site-wallet/loader",
+                    "options": {
+                        "overwrite": true
+                    }
+                },
+                {
                     "type": "execute",
                     "cmd": "cd apihub-root/csc-site-wallet/loader && npm install"
                 },
@@ -122,6 +162,14 @@
                     "target": ".",
                     "collectLog": false,
                     "commit": "35354341a275ef9f190331dfbd0a4f68339dc06c"
+                },
+                {
+                    "type": "copy",
+                    "src": "./patch/trust-loader",
+                    "target": "./apihub-root/csc-courier-wallet/loader",
+                    "options": {
+                        "overwrite": true
+                    }
                 },
                 {
                     "type": "execute",
@@ -158,6 +206,14 @@
                     "target": ".",
                     "collectLog": false,
                     "commit": "35354341a275ef9f190331dfbd0a4f68339dc06c"
+                },
+                {
+                    "type": "copy",
+                    "src": "./patch/trust-loader",
+                    "target": "./apihub-root/demiurge-wallet/loader",
+                    "options": {
+                        "overwrite": true
+                    }
                 },
                 {
                     "type": "execute",
@@ -200,6 +256,14 @@
                     "commit": "35354341a275ef9f190331dfbd0a4f68339dc06c"
                 },
                 {
+                    "type": "copy",
+                    "src": "./patch/trust-loader",
+                    "target": "./apihub-root/dsu-explorer/loader",
+                    "options": {
+                        "overwrite": true
+                    }
+                },
+                {
                     "type": "execute",
                     "cmd": "cd apihub-root/dsu-explorer/loader && npm install"
                 },
@@ -233,6 +297,14 @@
             "name": "csc-sponsor-ssapp",
             "actions": [
                 {
+                    "type": "copy",
+                    "src": "./patch/csc-sponsor-ssapp",
+                    "target": "./csc-sponsor-ssapp",
+                    "options": {
+                        "overwrite": true
+                    }
+                },
+                {
                     "type": "execute",
                     "cmd": "cd csc-sponsor-ssapp && npm install"
                 }
@@ -241,6 +313,14 @@
         {
             "name": "csc-cmo-ssapp",
             "actions": [
+                {
+                    "type": "copy",
+                    "src": "./patch/csc-cmo-ssapp",
+                    "target": "./csc-cmo-ssapp",
+                    "options": {
+                        "overwrite": true
+                    }
+                },
                 {
                     "type": "execute",
                     "cmd": "cd csc-cmo-ssapp && npm install"
@@ -251,6 +331,14 @@
             "name": "csc-site-ssapp",
             "actions": [
                 {
+                    "type": "copy",
+                    "src": "./patch/csc-site-ssapp",
+                    "target": "./csc-site-ssapp",
+                    "options": {
+                        "overwrite": true
+                    }
+                },
+                {
                     "type": "execute",
                     "cmd": "cd csc-site-ssapp && npm install"
                 }
@@ -260,6 +348,14 @@
             "name": "csc-courier-ssapp",
             "actions": [
                 {
+                    "type": "copy",
+                    "src": "./patch/csc-courier-ssapp",
+                    "target": "./csc-courier-ssapp",
+                    "options": {
+                        "overwrite": true
+                    }
+                },
+                {
                     "type": "execute",
                     "cmd": "cd csc-courier-ssapp && npm install"
                 }
@@ -268,6 +364,14 @@
         {
             "name": "csc-services",
             "actions": [
+                {
+                    "type": "copy",
+                    "src": "./patch/csc-services",
+                    "target": "./csc-services",
+                    "options": {
+                        "overwrite": true
+                    }
+                },
                 {
                     "type": "execute",
                     "cmd": "cd csc-services && npm install"
@@ -285,6 +389,14 @@
                     "commit": "bd830104fa3aafb54b948b7c2a19f6f303e08a1c"
                 },
                 {
+                    "type": "copy",
+                    "src": "./patch/themes/blue-fluorite-theme",
+                    "target": "./themes/blue-fluorite-theme",
+                    "options": {
+                        "overwrite": true
+                    }
+                },
+                {
                     "type": "execute",
                     "cmd": "cd themes/blue-fluorite-theme && npm install"
                 }
@@ -294,6 +406,14 @@
             "name": "themes/blue-csc-theme",
             "src": "",
             "actions": [
+                {
+                    "type": "copy",
+                    "src": "./patch/themes/blue-csc-theme",
+                    "target": "./themes/blue-csc-theme",
+                    "options": {
+                        "overwrite": true
+                    }
+                },
                 {
                     "type": "execute",
                     "cmd": "cd themes/blue-csc-theme && npm install"
@@ -309,6 +429,14 @@
                     "target": ".",
                     "collectLog": false,
                     "commit": "4dcb2ec281f837c27cfcb612db07630d00177b9d"
+                },
+                {
+                    "type": "copy",
+                    "src": "./patch/metrics-middleware",
+                    "target": "./metrics-middleware",
+                    "options": {
+                        "overwrite": true
+                    }
                 },
                 {
                     "type": "execute",
