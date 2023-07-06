@@ -172,6 +172,7 @@ class GroupsController extends DwController {
         if (scAPI.sharedEnclaveExists()) {
           this.model.groups = await utils.fetchGroups();
           this.model.defaultGroup = this.model.groups[0];
+          this.model.selectedGroup = this.model.groups[0]
           this.model.areGroupsLoaded = true;
         } else {
           __waitForSharedEnclave();
