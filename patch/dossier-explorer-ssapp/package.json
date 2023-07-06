@@ -3,7 +3,8 @@
     "version": "v1.0.0",
     "description": "DSU Explorer",
     "scripts": {
-        "postinstall": "node ./node_modules/octopus/scripts/run dependencies devmode"
+        "prebuild": "node ./node_modules/octopus/scripts/run prebuild devmode",
+        "build": "node ./node_modules/octopus/scripts/buildDSU.js"
     },
     "dependencies": {
         "octopus": "git+http://github.com/opendsu/octopus.git#a2bfd2485eccca66cb1160613eac9f6b30d66bda"
