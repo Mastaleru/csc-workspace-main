@@ -184,6 +184,14 @@
                     "commit": "ed9be554205f06a4cfdec2220a384705ee011040"
                 },
                 {
+                    "type": "copy",
+                    "src": "./patch/demiurge",
+                    "target": "./demiurge",
+                    "options": {
+                        "overwrite": true
+                    }
+                },
+                {
                     "type": "execute",
                     "cmd": "cd demiurge && npm install"
                 }

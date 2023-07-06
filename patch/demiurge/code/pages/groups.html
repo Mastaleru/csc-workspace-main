@@ -1,0 +1,262 @@
+<link rel="stylesheet" href="./assets/pages/groups.css"/>
+<link rel="stylesheet" href="./assets/parts/credentials.css"/>
+
+<webc-container controller="groups/GroupsController" id="groups-page" class="dw-container">
+  <!--    <section id="dw-domain">-->
+  <!--        <dw-title header="Domain" subheader="Blockchain domain"></dw-title>-->
+
+  <!--        <sl-input class="dw-domain-input" data-tag="blockchain-domain" value="@blockchainDomain" disabled-->
+  <!--                  help-text="Change the current blockchain domain">-->
+  <!--            <sl-button type="primary" slot="suffix">-->
+  <!--                <sl-icon name="pen-fill"></sl-icon>-->
+  <!--                Edit-->
+  <!--            </sl-button>-->
+  <!--            <sl-button type="success" slot="suffix" hidden>-->
+  <!--                <sl-icon name="check-lg"></sl-icon>-->
+  <!--                Save-->
+  <!--            </sl-button>-->
+  <!--        </sl-input>-->
+  <!--    </section>-->
+
+  <main id="dw-groups">
+    <section class="dw-groups--header">
+      <dw-title header="Groups"></dw-title>
+
+      <select class="group-select" value="@defaultGroup.name" data-for="@groups" data-for-option="rerender">
+        <option value="@name">{{ @name }}</option>
+      </select>
+
+      <!--            <sl-form data-loaded="@areGroupsLoaded" class="feature-add-group">
+                      <sl-input label="Group name" help-text="DID will be automatically generated" name="name"
+                                clearable></sl-input>
+                      <sl-button type="primary" data-tag="group.add"> New group
+                          <sl-icon slot="prefix" name="plus-lg"></sl-icon>
+                      </sl-button>
+                  </sl-form>-->
+    </section>
+
+    <!--        <section class="dw-data-grid" data-for="@groups" data-if="@areGroupsLoaded">
+                <div slot="no-data">
+                    <dw-spinner slot="false" content="Groups are loading"></dw-spinner>
+                    <p slot="true" class="no-data">There are no groups created yet!</p>
+                </div>
+            </section>-->
+  </main>
+  <section id="dw-group-content">
+    <!-- Group content is injected here -->
+  </section>
+</webc-container>
+
+<!-- Group content -->
+<template id="dw-group-content--template">
+  <webc-container controller="groups/GroupFeaturesController">
+    <sl-tab-group class="dw-group-content">
+      <sl-tab slot="nav" panel="members">
+        <sl-icon name="people-fill"></sl-icon>
+        Members
+      </sl-tab>
+      <sl-tab slot="nav" panel="credentials" disabled_feature="@disable_credentials_management">
+        <sl-icon name="key-fill"></sl-icon>
+        Credentials
+      </sl-tab>
+      <sl-tab slot="nav" panel="databases" disabled_feature="@disable_enclaves_management">
+        <sl-icon name="hdd-stack-fill"></sl-icon>
+        Enclaves
+      </sl-tab>
+
+      <sl-tab-panel name="members">
+        <section id="dw-group-members">
+          <!-- Group members are injected here -->
+        </section>
+      </sl-tab-panel>
+
+      <sl-tab-panel name="credentials">
+        <section id="dw-group-credentials" disabled_feature="@disable_credentials_management">
+          <!-- Group credentials are injected here -->
+        </section>
+      </sl-tab-panel>
+
+
+      <sl-tab-panel name="databases">
+        <section id="dw-group-databases" disabled_feature="@disable_enclaves_management">
+          <!-- Group databases are injected here -->
+        </section>
+      </sl-tab-panel>
+
+    </sl-tab-group>
+  </webc-container>
+</template>
+
+<!-- Group members -->
+<template id="dw-group-members--template">
+  <webc-container controller="groups/MembersController">
+    <section class="dw-members--header">
+      <dw-title>
+        <p slot="subheader">Manage members of group "{{ @selectedGroup.name }}"</p>
+      </dw-title>
+      <div data-loaded="@areMembersLoaded">
+        <sl-form>
+          <sl-input label="Member DID" name="did" placeholder="did:ssi:name:domain:<username>"
+                    id="add-member-input" required clearable>
+            <sl-button slot="suffix" type="text" data-tag="member.paste" class="dw-paste">
+              Paste
+            </sl-button>
+          </sl-input>
+          <sl-button type="primary" data-tag="member.add" class="dw-action-button"> Add member
+            <sl-icon slot="prefix" name="plus-lg"></sl-icon>
+          </sl-button>
+        </sl-form>
+
+      </div>
+    </section>
+
+    <section class="dw-members dw-data-grid" data-for="@members">
+      <article class="dw-data-grid-item">
+        <sl-menu-item value="@did" data-tag="member.select">
+          <div>
+            <div><strong>{{ @username }}</strong> &nbsp; {{ @email }}</div>
+            <div><code>{{ @did }}</code></div>
+          </div>
+        </sl-menu-item>
+        <sl-tooltip content="Delete group member">
+          <sl-icon-button data-tag="member.delete" name="trash"></sl-icon-button>
+        </sl-tooltip>
+        <section data-if="@enable_deactivate_group_member_feature">
+          <sl-tooltip content="Deactivate group member" slot="true">
+            <sl-icon-button data-tag="member.deactivate" name="person-x"></sl-icon-button>
+          </sl-tooltip>
+        </section>
+
+      </article>
+      <div slot="no-data" data-if="@areMembersLoaded" class="no-data">
+        <dw-spinner slot="false" content="Members are loading"></dw-spinner>
+        <p slot="true">There are no members in this group!</p>
+      </div>
+    </section>
+
+    <section id="dw-member-content">
+      <!-- Member content is injected here -->
+    </section>
+  </webc-container>
+</template>
+
+<!-- Group credentials -->
+<template id="dw-group-credentials--template">
+  <webc-container controller="groups/CredentialsController">
+    <section class="dw-credentials--header">
+      <dw-title>
+        <p slot="subheader">Manage credentials of group "{{ @selectedGroup.name }}"</p>
+        <p slot="subheader">Each item is shared between members of this group</p>
+      </dw-title>
+
+      <sl-button type="success" data-tag="toggle.credential.assign" class="dw-action-button">
+        Assign credential to Group
+        <sl-icon slot="prefix" name="plus"></sl-icon>
+      </sl-button>
+    </section>
+
+    <div class='dw-credentials dw-data-grid'>
+      <div class='dw-data-table' data-if='@hasCredentials'>
+        <div class='no-data' data-if='@areCredentialsLoaded' slot='false'>
+          <dw-spinner content='Credentials are loading' slot='false'></dw-spinner>
+          <p class='no-data' slot='true'>There are no credentials assigned to the group!</p>
+        </div>
+
+        <article class='dw-data-grid-header dw-col-3' slot='true'>
+          <div><label>Credential Token</label></div>
+          <div><label>Credential Tags</label></div>
+          <div><label>Options</label></div>
+        </article>
+
+        <article class='dw-data-grid-item dw-col-3' data-for='@credentials' slot='true'>
+          <div><label>{{@token}}</label></div>
+          <div><label>{{@tags}}</label></div>
+          <div class='dw-table-options'>
+            <sl-button data-tag='credential.select' outline type='success'>
+              <sl-icon name='clipboard' slot='prefix'></sl-icon>
+            </sl-button>
+            <sl-button data-tag='credential.inspect' outline type='primary'>
+              <sl-icon name='eye' slot='prefix'></sl-icon>
+            </sl-button>
+            <sl-button data-tag='credential.delete' outline type='danger'>
+              <sl-icon name='trash' slot='prefix'></sl-icon>
+            </sl-button>
+          </div>
+        </article>
+      </div>
+    </div>
+
+    <div data-if="@isAssignCredentialOpened">
+      <section class="dw-credentials--header">
+        <dw-title>
+          <p slot="subheader">List of credentials that can be assigned</p>
+          <p slot="subheader"></p>
+        </dw-title>
+      </section>
+
+      <div class='dw-credentials dw-data-grid'>
+        <div class='dw-data-table' data-if='@hasGovernanceCredentials'>
+          <div class='no-data' data-if='@areCredentialsLoaded' slot='false'>
+            <dw-spinner content='Credentials are loading' slot='false'></dw-spinner>
+            <p class='no-data' slot='true'>There are no credentials generated!</p>
+          </div>
+
+          <article class='dw-data-grid-header dw-col-3' slot='true'>
+            <div><label>Credential Token</label></div>
+            <div><label>Credential Tags</label></div>
+            <div><label>Options</label></div>
+          </article>
+
+          <article class='dw-data-grid-item dw-col-3' data-for='@governanceCredentials' slot='true'>
+            <div><label>{{@token}}</label></div>
+            <div><label>{{@tags}}</label></div>
+            <div class='dw-table-options'>
+              <sl-button data-tag='credential.select' outline type='success'>
+                <sl-icon name='clipboard' slot='prefix'></sl-icon>
+              </sl-button>
+              <sl-button data-tag='credential.inspect' outline type='primary'>
+                <sl-icon name='eye' slot='prefix'></sl-icon>
+              </sl-button>
+              <sl-button data-tag='credential.assign' outline type='warning'>
+                <sl-icon name='plus' slot='prefix'></sl-icon>
+              </sl-button>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </webc-container>
+</template>
+
+<!-- Group databases -->
+<template id="dw-group-databases--template">
+  <webc-container controller="groups/DatabasesController">
+    <section class="dw-databases--header">
+      <dw-title>
+        <p slot="subheader">Manage databases of group "{{ @selectedGroup.name }}"</p>
+        <p slot="subheader">Each item is shared between members of this group</p>
+      </dw-title>
+      <sl-form>
+        <sl-input label="Database name" required clearable name="name"></sl-input>
+        <sl-button type="primary" data-tag="database.add" class="dw-action-button"> New database
+          <sl-icon slot="prefix" name="plus-lg"></sl-icon>
+        </sl-button>
+      </sl-form>
+    </section>
+
+    <section class="dw-data-grid dw-databases" data-for="@databases">
+      <article class="dw-data-grid-item">
+        <sl-menu-item value="@enclaveDID" data-tag="database.select">
+          <div class="dw-database--data">
+            <strong>{{ @enclaveName }}</strong>
+          </div>
+        </sl-menu-item>
+        <sl-icon-button data-tag="database.delete" name="trash"></sl-icon-button>
+      </article>
+      <div slot="no-data" data-if="@areDatabasesLoaded">
+        <dw-spinner slot="false" content="Databases are loading"></dw-spinner>
+        <p slot="true" class="no-data">There are no databases shared for this group!</p>
+      </div>
+    </section>
+  </webc-container>
+</template>
