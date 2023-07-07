@@ -23,7 +23,16 @@ html {
     padding: 0 1rem;
 }
 
-#demiurge a {
+
+#explorer {
+    position: absolute;
+    top: 2rem;
+    left: 2rem;
+    padding: 0 1rem;
+}
+
+#demiurge a,
+#explorer a{
     display: flex;
     justify-content: center;
     align-items: center;

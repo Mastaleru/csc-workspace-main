@@ -682,6 +682,7 @@
             ]
         }
     ],
+    
     "patch": [
         {
             "name": "trust-loader-config",
