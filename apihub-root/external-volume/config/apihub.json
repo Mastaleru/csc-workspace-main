@@ -1,6 +1,6 @@
 {
   "storage": "../apihub-root",
-  "port": 8080,
+  "port": 9292,
   "preventRateLimit": true,
   "activeComponents": [
     "metrics-middleware",
