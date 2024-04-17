@@ -1,5 +1,6 @@
 {
     "workDir": ".",
+
     "dependencies": [
         {
             "name": "webcardinal/bundle",
